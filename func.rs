@@ -15,11 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include<cstdio>
-
-extern "C" const char* rust_func();
-
-int main(int, char **) {
-    printf("%s\n", rust_func());
-    return 0;
+#[no_mangle]
+pub extern fn rust_func() -> *const u8 {
+    "Now inside Rust.\0".as_ptr()
 }
