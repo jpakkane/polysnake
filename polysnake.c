@@ -21,9 +21,10 @@
 
 double frtfunc_(char *buf, int len_buf);
 const char* cppfunc();
+const char* rustfunc();
 
 static PyObject* generate(PyObject *self, PyObject *args) {
-    char mainbuf[1024] = "Combining many languages is simple.\n\n";
+    char mainbuf[1024] = "Combining many languages in one shared module is simple.\n\n";
     char fstore[80];
     int i=0;
     frtfunc_(fstore, 80);
@@ -33,9 +34,10 @@ static PyObject* generate(PyObject *self, PyObject *args) {
     }
     fstore[i+1] = '\n';
     fstore[i+2] = '\0';
-    strcat(mainbuf, "This is created in C.\n");
+    strcat(mainbuf, "This line is created in C.\n");
     strcat(mainbuf, fstore);
     strcat(mainbuf, cppfunc());
+    strcat(mainbuf, rustfunc());
     return Py_BuildValue("y", mainbuf);
 }
 

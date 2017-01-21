@@ -18,5 +18,5 @@
      REAL FRTFUNC
      CHARACTER*(*) STR
 
-       STR = 'Created in FORTRAN.'
+       STR = 'This line is created in FORTRAN.'
        END

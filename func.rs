@@ -16,6 +16,6 @@
  */
 
 #[no_mangle]
-pub extern fn rust_func() -> *const u8 {
-    "Created with Rust.\0".as_ptr()
+pub extern fn rustfunc() -> *const u8 {
+    "This line is created in Rust.\0".as_ptr()
 }

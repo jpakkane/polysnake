@@ -19,7 +19,7 @@
 
 extern "C" {
 const char* cppfunc() {
-    return "This is created in C++.\n";
+    return "This line is created in C++.\n";
 }
 
 }
