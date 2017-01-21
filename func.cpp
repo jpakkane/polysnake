@@ -17,13 +17,9 @@
 
 #include<cstdio>
 
-extern "C" const char* rust_func();
-extern "C" double frtfunc_(char *buf, int len_buf);
+extern "C" {
+const char* cppfunc() {
+    return "This is created in C++.\n";
+}
 
-int main(int, char **) {
-    char fstore[80];
-    frtfunc_(fstore, 80);
-    printf("%s\n", rust_func());
-    printf("%s\n", fstore);
-    return 0;
 }
