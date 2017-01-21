@@ -17,7 +17,6 @@
 
 #include<Python.h>
 #include<string.h>
-#include<string.h>
 
 double frtfunc_(char *buf, int len_buf);
 const char* cppfunc();
