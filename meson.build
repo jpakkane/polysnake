@@ -7,5 +7,8 @@ py3_dep = dependency('python3')
 
 rustlib = static_library('func', 'func.rs')
 
+py3_mod.extension_module('polysnake', 'polysnake.c',
+  dependencies : py3_dep)
+
 executable('tmpbin', 'main.cpp', 'ffunc.f90',
   link_with : rustlib)
