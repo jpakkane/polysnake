@@ -17,5 +17,5 @@
 
 #[no_mangle]
 pub extern fn rust_func() -> *const u8 {
-    "Now inside Rust.\0".as_ptr()
+    "Created with Rust.\0".as_ptr()
 }
