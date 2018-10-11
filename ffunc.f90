@@ -13,9 +13,9 @@
 ! You should have received a copy of the GNU General Public License
 ! along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-     FUNCTION FRTFUNC(STR) BIND(C, name='frtfunc')
+     FUNCTION FORTRANFUNC(STR) BIND(C, name='fortranfunc')
 
-     REAL FRTFUNC
+     REAL FORTRANFUNC
      CHARACTER*(*) STR
 
        STR = 'This line is created in FORTRAN.'
