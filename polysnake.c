@@ -18,7 +18,7 @@
 #include<Python.h>
 #include<string.h>
 
-double frtfunc_(char *buf, int len_buf);
+double fortranfunc(char *buf, int len_buf);
 const char* cppfunc();
 const char* rustfunc();
 
@@ -26,7 +26,7 @@ static PyObject* generate(PyObject *self, PyObject *args) {
     char mainbuf[1024] = "Combining many languages in one shared module is simple.\n\n";
     char fstore[80];
     int i=0;
-    frtfunc_(fstore, 80);
+    fortranfunc(fstore, 80);
     /* FORTRAN does not null terminate strings. */
     while(fstore[i] != '.') {
         i++;
