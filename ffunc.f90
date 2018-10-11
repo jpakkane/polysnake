@@ -13,10 +13,15 @@
 ! You should have received a copy of the GNU General Public License
 ! along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-     FUNCTION FORTRANFUNC(STR) BIND(C, name='fortranfunc')
+function fortranfunc() result(msg_ptr) bind(c, name='fortranfunc')
+  use, intrinsic :: iso_c_binding, only: &
+       c_ptr, c_char, C_CHAR, C_NEW_LINE, C_NULL_CHAR, c_loc
+  type(c_ptr) :: msg_ptr
+  ! NOTE: `save` is necessary here to make sure that the pointer
+  !       continues to point to valid memory.
+  character(kind=c_char, len=34), target, save :: msg
 
-     REAL FORTRANFUNC
-     CHARACTER*(*) STR
+  msg = C_CHAR_"This line is created in Fortran."//C_NEW_LINE//C_NULL_CHAR
+  msg_ptr = c_loc(msg)
 
-       STR = 'This line is created in FORTRAN.'
-       END
+end function fortranfunc
