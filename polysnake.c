@@ -18,23 +18,14 @@
 #include<Python.h>
 #include<string.h>
 
-double fortranfunc(char *buf, int len_buf);
+const char* fortranfunc();
 const char* cppfunc();
 const char* rustfunc();
 
 static PyObject* generate(PyObject *self, PyObject *args) {
     char mainbuf[1024] = "Combining many languages in one shared module is simple.\n\n";
-    char fstore[80];
-    int i=0;
-    fortranfunc(fstore, 80);
-    /* FORTRAN does not null terminate strings. */
-    while(fstore[i] != '.') {
-        i++;
-    }
-    fstore[i+1] = '\n';
-    fstore[i+2] = '\0';
     strcat(mainbuf, "This line is created in C.\n");
-    strcat(mainbuf, fstore);
+    strcat(mainbuf, fortranfunc());
     strcat(mainbuf, cppfunc());
     strcat(mainbuf, rustfunc());
     return Py_BuildValue("y", mainbuf);
